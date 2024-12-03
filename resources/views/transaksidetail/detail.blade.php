@@ -43,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($transaksi->details as $index => $data)
+                    @foreach ($transaksi->transaksidetail as $index => $data)
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ \Carbon\Carbon::parse($data->transaksi->tanggal_pembelian)->format('d/m/Y') }}</td>
@@ -69,7 +69,8 @@
                 <tfoot>
                     <tr>
                         <th colspan="5">Total</th>
-                        <th class="text-end">{{ number_format($transaksi->details->sum('subtotal'), 0, '.', '.') }}</th>
+                        <th class="text-end">{{ number_format($transaksi->transaksidetail->sum('subtotal'), 0, '.', '.') }}
+                        </th>
                         <th></th>
                     </tr>
                 </tfoot>
