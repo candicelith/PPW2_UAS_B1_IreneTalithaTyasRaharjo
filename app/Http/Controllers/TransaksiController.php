@@ -73,7 +73,7 @@ class TransaksiController extends Controller
     public function edit($id)
     {
         $transaksi = Transaksi::findOrFail($id);
-        return view('transaksi.edit', );
+        return view('transaksi.edit', compact('transaksi'));
     }
 
     public function update(Request $request, $id)
@@ -93,6 +93,6 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::findOrFail($id);
 
-        return redirect('/transaksi');
+        return redirect('/transaksi')->with('pesan', 'Berhasil menghapus data');
     }
 }
