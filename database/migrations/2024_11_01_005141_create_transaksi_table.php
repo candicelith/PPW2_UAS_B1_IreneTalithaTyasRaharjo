@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->integer('total_harga');
             $table->integer('bayar');
             $table->integer('kembalian');
+            $table->timestamps();
         });
     }
 
