@@ -22,7 +22,7 @@ class TransaksiDetailSeeder extends Seeder
 
         foreach ($transaksi as $t) {
             $numberOfDetails = // gunakan faker untuk membuat angka antara 5 - 15
-            $total_harga = 0;
+                $total_harga = 0;
 
             for ($j = 0; $j < $numberOfDetails; $j++) {
                 $hargaSatuan = $faker->numberBetween(10, 500) * 100;
@@ -30,7 +30,7 @@ class TransaksiDetailSeeder extends Seeder
                 $subtotal = $hargaSatuan * $jumlah;
                 $total_harga += $subtotal;
 
-                TransaksiDetail:create([
+                TransaksiDetail::create([
                     'id_transaksi' => $t->id,
                     'nama_produk' => $faker->productName,
                     'harga_satuan' => $hargaSatuan,
@@ -40,8 +40,8 @@ class TransaksiDetailSeeder extends Seeder
             }
 
             $t->total_harga = $total_harga;
-            $t->bayar = ceil($total_harga/50000) * 50000;
-            $t->kembalian = $t->bayar - $total_harga
+            $t->bayar = ceil($total_harga / 50000) * 50000;
+            $t->kembalian = $t->bayar - $total_harga;
         }
     }
 }
