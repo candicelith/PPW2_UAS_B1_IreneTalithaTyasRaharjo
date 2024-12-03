@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(LoginController::class) - group(function () {
+Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::post('/logout', 'logout')->name('logout');
@@ -29,8 +29,7 @@ Route::controller(LoginController::class) - group(function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route:
-prefix('/transaksi')->group(function () {
+Route::prefix('/transaksi')->group(function () {
     Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
     Route::get('create', [TransaksiController::class, 'create'])->name('transaksi.create');
     Route::post('store', [TransaksiController::class, 'store'])->name('transaksi.store');
