@@ -21,8 +21,8 @@ class TransaksiDetailSeeder extends Seeder
         $transaksi = Transaksi::all();
 
         foreach ($transaksi as $t) {
-            $numberOfDetails = // gunakan faker untuk membuat angka antara 5 - 15
-                $total_harga = 0;
+            $numberOfDetails = $faker->numberBetween(5, 15);
+            $total_harga = 0;
 
             for ($j = 0; $j < $numberOfDetails; $j++) {
                 $hargaSatuan = $faker->numberBetween(10, 500) * 100;
